@@ -22,7 +22,8 @@ const myCreatedRouter = createBrowserRouter([
             },
             {
                 path: "/products/:id",
-                element:<Product></Product>
+                element:<Product></Product>,
+                loader: (object)=> fetch(`https://dummyjson.com/products/${object.params.id}`)
             },
             {
                 path: "/dashboard",
