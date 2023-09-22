@@ -2,7 +2,7 @@
 const Dashboard = () => {
     return (
         <div>
-            this is dashboard
+            Hello from dashboard
         </div>
     );
 };

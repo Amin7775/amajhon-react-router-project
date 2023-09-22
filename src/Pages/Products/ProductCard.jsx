@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { id, title, images, price, stock } = product || {};
+  const { id, title, images, price,} = product || {};
+
+  const navigate = useNavigate();
+
+  const handleSingleItemNavigate=()=>{
+    const user = true;
+    
+    if(user){
+      navigate(`/products/${id}`)
+    }else{
+      navigate('/')
+    }
+  }
   return (
     <div>
       <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -72,10 +84,15 @@ const ProductCard = ({ product }) => {
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               ${price}
             </span>
-            <Link to={`/products/${id}`}><button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+
+            {/* <Link to={`/products/${id}`}><button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               View Details
-            </button></Link>
+            </button></Link> */}
             
+            {/* using navigate */}
+            <button onClick={handleSingleItemNavigate} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              View Details
+            </button>
           </div>
         </div>
       </div>
